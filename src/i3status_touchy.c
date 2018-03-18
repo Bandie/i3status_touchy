@@ -66,7 +66,7 @@ int main(int argc, char *argv[]){
   int sleeptm = 20;
   int verbose = 0;
   int statval;
-  int progargc = 0;
+  int progargc = 1;
   char *progargv[PROGARGVSIZE];
  
 
@@ -86,20 +86,18 @@ int main(int argc, char *argv[]){
           progargc++;
         k++;
       }
-      if(progargc>0){
-        char *prgargptr;
-        prgargptr = strtok(argv[i+1], " ");
-        prog = prgargptr;
-        progargv[0] = prgargptr;
-        int l=1;
-        while(prgargptr != NULL){
-          prgargptr = strtok(NULL, " ");
-          progargv[l] = prgargptr;
-          l++;
-        }
+      
+      char *prgargptr;
+      prgargptr = strtok(argv[i+1], " ");
+      prog = prgargptr;
+      progargv[0] = prgargptr;
+      int l=1;
+      while(prgargptr != NULL){
+        prgargptr = strtok(NULL, " ");
+        progargv[l] = prgargptr;
+        l++;
       }
-      else
-        prog = argv[i+1];
+      
     }
     if((!strcmp(argv[i], "--touch") || !strcmp(argv[i], "-t")) && (i+1) < argc)
       vrffile = argv[i+1];
@@ -185,9 +183,6 @@ int main(int argc, char *argv[]){
           }
           fclose(f);
         } 
-        else if(statval == 256){
-          return 1;
-        }
         else
           // If exit != 0
           if(access(vrffile, F_OK) != -1) //File exists?
