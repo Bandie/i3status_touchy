@@ -21,5 +21,5 @@ uninstall:
 
 clean:
 	rm bin/i3status_touchy
-
+	rmdir bin
 
