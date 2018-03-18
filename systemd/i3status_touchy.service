@@ -1,0 +1,8 @@
+[Unit]
+# Not finished. idk
+
+[Service]
+ExecStart=/usr/local/bin/i3status_touchy
+
+[Install]
+WantedBy=default.target
