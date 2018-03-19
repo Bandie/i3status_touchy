@@ -172,9 +172,9 @@ int main(int argc, char *argv[]){
       wait(&statval);
       if(WIFEXITED(statval)){
         if(verbose) 
-          printf("Exit: %d\n", statval);
+          printf("Exit: %d\n", WEXITSTATUS(statval));
 
-        if(statval == returncode){
+        if(WEXITSTATUS(statval) == returncode){
           // If exit is returncode, write file with nothing in it
           FILE *f = fopen(vrffile, "w");
           if(f == NULL){
