@@ -176,12 +176,14 @@ int main(int argc, char *argv[]){
 
         if(WEXITSTATUS(statval) == returncode){
           // If exit is returncode, write file with nothing in it
-          FILE *f = fopen(vrffile, "w");
-          if(f == NULL){
-            printf("ERROR opening file");
-            return 1;
+          if(access(vrffile, F_OK) == -1){
+            FILE *f = fopen(vrffile, "w");
+            if(f == NULL){
+              fprintf(stderr, "ERROR opening file!\n");
+              return 1;
+            }
+            fclose(f);
           }
-          fclose(f);
         } 
         else
           // If exit != 0

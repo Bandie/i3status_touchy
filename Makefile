@@ -13,7 +13,8 @@ install:
 	chown root:root /usr/local/bin/i3status_touchy
 	chmod 740 /usr/local/bin/i3status_touchy
 	@printf "Done.\n"
-	@printf "You may want to enable and start the service: \"systemctl enable i3status_touchy ; systemctl start i3status_touchy\"\n"	@printf "The file will be called /verified"
+	@printf "You may want to configure your service in \"/etc/systemd/system/i3status_touchy.service\".\n"
+	@printf "Then you might want to enable and start the service: \"systemctl enable i3status_touchy ; systemctl start i3status_touchy\"\n"
 
 uninstall:
 	rm /usr/sbin/local/i3status_touchy
