@@ -4,7 +4,7 @@
 
 all: 
 	mkdir -p bin
-	cc src/i3status_touchy.c -o bin/i3status_touchy
+	cc --std=c99 src/i3status_touchy.c -o bin/i3status_touchy
 
 install:
 	mkdir -p /usr/local/bin
@@ -24,3 +24,5 @@ clean:
 	rm bin/i3status_touchy
 	rmdir bin
 
+test:
+	@printf "What to test?\n"

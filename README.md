@@ -1,4 +1,4 @@
-# i3status\_touchy
+# i3status\_touchy [![Build Status](https://travis-ci.org/Bandie/i3status_touchy.svg?branch=master)](https://travis-ci.org/Bandie/i3status_touchy)
 
 
 ## Purpose
