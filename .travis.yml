@@ -1,2 +1,3 @@
 language: C
 sudo: enabled
+script: make && sudo make install
